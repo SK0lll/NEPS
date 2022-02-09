@@ -218,6 +218,7 @@ public:
 		Color4OutlineToggle inaccuracyCircle = {1.0f, 1.0f, 1.0f, 0.25f};
 		int recoilCrosshairType = 0;
 		int forceCrosshair = 0;
+		Color4Toggle drawAimbotFov{ 1.0f, 0.0f, 0.0f, 1.0f };
 
 		struct Beams
 		{

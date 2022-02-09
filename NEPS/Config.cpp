@@ -565,6 +565,7 @@ static void from_json(const json &j, Config::Visuals &v)
 	read(j, "Recoil crosshair type", v.recoilCrosshairType);
 	read<value_t::object>(j, "Recoil crosshair", v.recoilCrosshair);
 	read<value_t::object>(j, "Inaccuracy circle", v.inaccuracyCircle);
+	read<value_t::object>(j, "Draw aimbot fov", v.drawAimbotFov);
 	read(j, "Force crosshair", v.forceCrosshair);
 }
 
@@ -1417,6 +1418,7 @@ static void to_json(json &j, const Config::Visuals &o)
 	WRITE("Recoil crosshair type", recoilCrosshairType);
 	WRITE("Recoil crosshair", recoilCrosshair);
 	WRITE("Inaccuracy circle", inaccuracyCircle);
+	WRITE("Draw aimbot fov", drawAimbotFov);
 	WRITE("Force crosshair", forceCrosshair);
 }
 

@@ -1503,6 +1503,7 @@ void GUI::renderVisualsWindow(bool contentOnly) noexcept
 	ImGuiCustom::colorPicker("##rxhair", config->visuals.recoilCrosshair);
 	ImGui::SameLine();
 	ImGui::Combo("Recoil crosshair", &config->visuals.recoilCrosshairType, "None\0Circle dot\0Dot\0Cross\0Empty cross\0");
+	ImGuiCustom::colorPicker("Draw AimBot FOV", config->visuals.drawAimbotFov);
 	ImGui::PopItemWidth();
 
 	ImGuiCustom::colorPicker("Inaccuracy circle", config->visuals.inaccuracyCircle);

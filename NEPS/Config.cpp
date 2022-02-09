@@ -752,7 +752,7 @@ static void from_json(const json &j, Config::Griefing &g)
 	read<value_t::object>(j, "Reportbot", g.reportbot);
 	read<value_t::object>(j, "Blockbot", g.blockbot);
 	read(j, "Vote reveal", g.revealVotes);
-	read(j, "Spam use", g.spamUse);
+	read<value_t::object>(j, "Spam use", g.spamUse);
 	read<value_t::object>(j, "Nuke chat", g.chatNuke);
 	read<value_t::object>(j, "Basmala chat", g.chatBasmala);
 }

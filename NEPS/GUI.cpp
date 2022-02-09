@@ -2042,7 +2042,7 @@ void GUI::renderGriefingWindow(bool contentOnly) noexcept
 		ImGui::EndPopup();
 	}
 
-	ImGui::Checkbox("Spam use", &config->griefing.spamUse);
+	ImGuiCustom::keyBind("Spam use", config->griefing.spamUse);
 	ImGui::SameLine(80.0f);
 	ImGui::Checkbox("Fake Prime status", &config->griefing.fakePrime);
 

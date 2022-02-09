@@ -1232,7 +1232,7 @@ void Misc::useSpam(UserCmd *cmd) noexcept
 	if (!localPlayer || !localPlayer->isAlive())
 		return;
 
-	if (!config->griefing.spamUse)
+	if (static Helpers::KeyBindState flag; !flag[config->griefing.spamUse])
 		return;
 
 	static auto plantAnywhere = interfaces->cvar->findVar("mp_plant_c4_anywhere");

@@ -215,7 +215,7 @@ public:
 		Color4 overlayCrosshair;
 		int overlayCrosshairType = 0;
 		Color4 recoilCrosshair;
-		Color4OutlineToggle inaccuracyCircle = {1.0f, 1.0f, 1.0f, 0.25f};
+		Color4OutlineToggle accuracyCircle = {1.0f, 1.0f, 1.0f, 0.25f};
 		int recoilCrosshairType = 0;
 		int forceCrosshair = 0;
 		Color4Toggle drawAimbotFov{ 1.0f, 0.0f, 0.0f, 1.0f };
@@ -347,7 +347,6 @@ public:
 		struct Blockbot
 		{
 			KeyBind bind;
-			KeyBind target;
 			float trajectoryFac = 1.0f;
 			float distanceFac = 2.0f;
 			Color4ToggleThickness visualize = {0.0f, 1.0f, 0.0f, 0.7f};
@@ -397,7 +396,7 @@ public:
 		bool noExtrapolate = true;
 		bool disableIK = false;
 		bool resolveLby = false;
-		bool unlockInvertory = false;
+		bool unlockInventory = false;
 		bool disablePanoramablur = false;
 
 		struct PreserveKillfeed

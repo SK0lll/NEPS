@@ -107,10 +107,9 @@ void GUI::render() noexcept
 	if (festive.get())
 		ImGui::GetBackgroundDrawList()->AddImage(festive.get(), {0, 0}, {ImGui::GetIO().DisplaySize.x, ImGui::GetIO().DisplaySize.x / 960 * 174}, {0, 0}, {1, 0.99f}, 0x00FFFFFF | (static_cast<unsigned>(alpha) << IM_COL32_A_SHIFT));
 
-	if (config->misc.goFestive && gui->open)
-		alpha = alpha * 0.9f + 255 * 0.1f;
-	else
-		alpha = alpha * 0.9f;
+	alpha = config->misc.goFestive && gui->open ?
+		Helpers::approachValSmooth(255.0f, alpha, memory->globalVars->frameTime * 20.0f) :
+		Helpers::approachValSmooth(0.0f, alpha, memory->globalVars->frameTime * 20.0f);
 
 	if (!open)
 		return;
@@ -1506,7 +1505,7 @@ void GUI::renderVisualsWindow(bool contentOnly) noexcept
 	ImGuiCustom::colorPicker("Draw AimBot FOV", config->visuals.drawAimbotFov);
 	ImGui::PopItemWidth();
 
-	ImGuiCustom::colorPicker("Inaccuracy circle", config->visuals.inaccuracyCircle);
+	ImGuiCustom::colorPicker("Accuracy circle", config->visuals.accuracyCircle);
 	ImGuiCustom::colorPicker("Molotov radius", config->visuals.molotovHull);
 	ImGui::SameLine(130);
 	ImGuiCustom::colorPicker("Smoke radius", config->visuals.smokeHull);
@@ -2034,7 +2033,6 @@ void GUI::renderGriefingWindow(bool contentOnly) noexcept
 	ImGuiCustom::keyBind("Blockbot", config->griefing.blockbot.bind);
 	if (ImGuiCustom::arrowButtonPopup("blockbot"))
 	{
-		ImGuiCustom::keyBind("Choose target", config->griefing.blockbot.target);
 		ImGui::PushItemWidth(192.0f);
 		ImGui::SliderFloat("##tfactor", &config->griefing.blockbot.trajectoryFac, 0.0f, 4.0f, "Trajectory factor %.3f");
 		ImGui::SliderFloat("##dfactor", &config->griefing.blockbot.distanceFac, 0.0f, 4.0f, "Distance factor %.3f");
@@ -2129,7 +2127,7 @@ void GUI::renderMiscWindow(bool contentOnly) noexcept
 
 	ImGui::Checkbox("Fix tablet signal", &config->misc.fixTabletSignal);
 	ImGui::Checkbox("Radar hack", &config->misc.radarHack);
-	ImGui::Checkbox("Unlock invertory", &config->misc.unlockInvertory);
+	ImGui::Checkbox("Unlock inventory", &config->misc.unlockInventory);
 	ImGui::Checkbox("Reveal ranks", &config->misc.revealRanks);
 	ImGui::Checkbox("Reveal money", &config->misc.revealMoney);
 	ImGui::Checkbox("Reveal suspect", &config->misc.revealSuspect);

@@ -565,6 +565,7 @@ static void from_json(const json &j, Config::Visuals &v)
 	read(j, "Recoil crosshair type", v.recoilCrosshairType);
 	read<value_t::object>(j, "Recoil crosshair", v.recoilCrosshair);
 	read<value_t::object>(j, "Inaccuracy circle", v.inaccuracyCircle);
+	read<value_t::object>(j, "Inaccuracy circle", v.accuracyCircle);
 	read<value_t::object>(j, "Draw aimbot fov", v.drawAimbotFov);
 	read(j, "Force crosshair", v.forceCrosshair);
 }
@@ -702,7 +703,7 @@ static void from_json(const json &j, Config::Misc &m)
 	read(j, "Disable extrapolation", m.noExtrapolate);
 	read(j, "Disable IK", m.disableIK);
 	read(j, "Resolve LBY", m.resolveLby);
-	read(j, "Unlock invertory", m.unlockInvertory);
+	read(j, "Unlock inventory", m.unlockInventory);
 	read(j, "Disable HUD blur", m.disablePanoramablur);
 	read<value_t::object>(j, "Prepare revolver", m.prepareRevolver);
 	read(j, "Quick healthshot key", m.quickHealthshotKey);
@@ -774,7 +775,6 @@ static void from_json(const json &j, Config::Griefing::Reportbot &r)
 static void from_json(const json &j, Config::Griefing::Blockbot &b)
 {
 	read<value_t::object>(j, "Bind", b.bind);
-	read<value_t::object>(j, "Target", b.target);
 	read(j, "Trajectory factor", b.trajectoryFac);
 	read(j, "Distance factor", b.distanceFac);
 	read<value_t::object>(j, "Visualise", b.visualize);
@@ -1207,7 +1207,7 @@ static void to_json(json &j, const Config::Misc &o)
 	WRITE("Disable extrapolation", noExtrapolate);
 	WRITE("Disable IK", disableIK);
 	WRITE("Resolve LBY", resolveLby);
-	WRITE("Unlock invertory", unlockInvertory);
+	WRITE("Unlock inventory", unlockInventory);
 	WRITE("Disable HUD blur", disablePanoramablur);
 	WRITE("Prepare revolver", prepareRevolver);
 	WRITE("Quick healthshot key", quickHealthshotKey);
@@ -1260,7 +1260,6 @@ static void to_json(json &j, const Config::Griefing::Reportbot &o, const Config:
 static void to_json(json &j, const Config::Griefing::Blockbot &o, const Config::Griefing::Blockbot &dummy = {})
 {
 	WRITE("Bind", bind);
-	WRITE("Target", target);
 	WRITE("Trajectory factor", trajectoryFac);
 	WRITE("Distance factor", distanceFac);
 	WRITE("Visualise", visualize);

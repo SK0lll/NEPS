@@ -564,7 +564,6 @@ static void from_json(const json &j, Config::Visuals &v)
 	read<value_t::object>(j, "Noscope crosshair", v.overlayCrosshair);
 	read(j, "Recoil crosshair type", v.recoilCrosshairType);
 	read<value_t::object>(j, "Recoil crosshair", v.recoilCrosshair);
-	read<value_t::object>(j, "Inaccuracy circle", v.inaccuracyCircle);
 	read<value_t::object>(j, "Inaccuracy circle", v.accuracyCircle);
 	read<value_t::object>(j, "Draw aimbot fov", v.drawAimbotFov);
 	read(j, "Force crosshair", v.forceCrosshair);

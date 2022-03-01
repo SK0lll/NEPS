@@ -720,6 +720,7 @@ void BombData::update() noexcept
 			blowTime = bomb->c4BlowTime();
 			timerLength = bomb->c4TimerLength();
 			defuserHandle = bomb->c4Defuser();
+			bombHandle = bomb->handle();
 			if (defuserHandle != -1)
 			{
 				defuseCountDown = bomb->c4DefuseCountDown();

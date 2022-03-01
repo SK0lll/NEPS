@@ -199,6 +199,7 @@ struct BombData
 	float blowTime;
 	float timerLength;
 	int defuserHandle;
+	int bombHandle;
 	float defuseCountDown;
 	float defuseLength;
 	int bombsite;

@@ -69,6 +69,8 @@ namespace Helpers
 	unsigned int calculateColor(Color3 color) noexcept;
 	unsigned int calculateColor(int r, int g, int b, int a) noexcept;
 	unsigned int calculateColor(float r, float g, float b, float a) noexcept;
+	unsigned int healthColor(float fraction) noexcept;
+	void healthColor(float fraction, float& outR, float& outG, float& outB) noexcept;
 
 	constexpr auto unitsToMeters(float units) noexcept
 	{
